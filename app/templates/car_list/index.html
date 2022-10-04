@@ -1,0 +1,29 @@
+{% extends "./template.html" %}
+{% block conteudo %}
+
+        <a class="btn btn-primary" href="{{ url_for('car_new.index') }}">New Car</a>
+
+        <table class="table table-striped table-responsive table-bordered">
+            <thead class="thead-default">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Owner's CPF</th>
+                    <th>Color</th>
+                    <th>Model</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                <tr>
+                    <td>{{ car.id }}</td>
+                    <td>{{ car.name }}</td>
+                    <td>{{ car.owner_cpf }}</td>
+                    <td>{{ car.color }}</td>
+                    <td>{{ car.model }}</td>
+                </tr>
+                {% endfor %}
+                <a class="btn btn-danger" href="{{ url_for('client_list.index') }}">Go to Clients</a>
+            </tbody>
+        </table>
+{% endblock %}

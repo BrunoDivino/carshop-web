@@ -1,0 +1,34 @@
+{% extends "./template.html" %}
+{% block conteudo %}
+      <form action="{{ url_for('car_new.create') }}" method="post" enctype="multipart/form-data">
+
+        <fieldset>
+          {{ form.csrf_token() }}
+          <div class="form-group">
+            {{ form.id.label(class="form-label") }}
+            {{ form.id(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.owner_cpf.label(class="form-label") }}
+            {{ form.owner_cpf(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.color.label(class="form-label") }}
+            {{ form.color(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.model.label(class="form-label") }}
+            {{ form.model(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.save(class="btn btn-primary") }}
+            <a class="btn btn-danger" href="{{ url_for('car_list.index') }}">Back to Cars</a>
+            <a class="btn btn-danger" href="{{ url_for('client_list.index') }}">Back to Clients</a>
+          </div>
+        </fieldset>
+      </form>
+{% endblock %}
